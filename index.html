@@ -226,6 +226,55 @@
             color: #dc3545;
         }
         
+        .shirt-preview-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .shirt-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .shirt-preview-box {
+            aspect-ratio: 1;
+            border: 2px solid #086375;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #086375;
+            font-weight: 600;
+            font-size: 12px;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        .shirt-preview-box:hover {
+            background: #086375;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(8, 99, 117, 0.3);
+        }
+        
+        @media (max-width: 600px) {
+            .shirt-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .shirt-preview-box {
+                font-size: 10px;
+                padding: 8px;
+            }
+        }
+        
         @media (max-width: 600px) {
             .person-row {
                 flex-direction: column;
@@ -255,6 +304,27 @@
                 <div class="form-row">
                     <label for="contactName">Name <span class="required">*</span></label>
                     <input type="text" id="contactName" name="contactName" required placeholder="Enter your name">
+                </div>
+            </div>
+            
+            <div class="shirt-preview-section">
+                <h3 style="color: #086375; margin-bottom: 15px;">Shirt Previews</h3>
+                <div class="shirt-preview-grid">
+                    <a href="https://www.printful.com/dashboard/custom/mens/t-shirts/unisex-staple-t-shirt-bella-canvas-3001?technique=T-SHIRT&color=Heather%20Slate&size=XS" target="_blank" class="shirt-preview-box">
+                        Adult Style 1
+                    </a>
+                    <a href="https://www.printful.com/dashboard/custom/mens/t-shirts/unisex-classic-tee-gildan-5000?technique=T-SHIRT&color=Graphite%20Heather&size=S" target="_blank" class="shirt-preview-box">
+                        Adult Style 2
+                    </a>
+                    <a href="https://www.printful.com/dashboard/custom/mens/t-shirts/unisex-basic-softstyle-t-shirt-gildan-64000?technique=T-SHIRT&color=Heather%20Indigo&size=S" target="_blank" class="shirt-preview-box">
+                        Adult Style 3
+                    </a>
+                    <a href="https://www.printful.com/dashboard/custom/kids-teen/t-shirts/youth-staple-tee-bella-canvas-3001y?technique=T-SHIRT&color=Heather%20Forest&size=S" target="_blank" class="shirt-preview-box">
+                        Kids T-Shirt
+                    </a>
+                    <a href="https://www.printful.com/dashboard/custom/mens/long-sleeve-shirts/unisex-long-sleeve-tee-bella-canvas-3501?technique=T-SHIRT&color=Heather%20Deep%20Teal&size=L" target="_blank" class="shirt-preview-box">
+                        Long Sleeve
+                    </a>
                 </div>
             </div>
             
