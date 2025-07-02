@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Reunion Shirts</title>
+    <link rel="stylesheet" href="https://use.typekit.net/fkl2row.css">
+    <style>
+        body {
+            font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 100%;
+            margin: 0;
+            padding: 10px;
+            background: #FFFAFF;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #086375;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 50px;
+            font-family: "eight", sans-serif;
+            font-style: normal;
+            letter-spacing: 4px;
+        }
+        
+        .instructions {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 3px solid #6c757d;
+        }
+        
+        .instructions h3 {
+            color: #495057;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .instructions p {
+            margin: 5px 0;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .contact-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            border: 2px solid #aadde7;
+        }
+        
+        .contact-section h3 {
+            margin-top: 0;
+            color: #086375;
+        }
+        
+        .form-row {
+            margin-bottom: 15px;
+        }
+        
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-row input, .form-row textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .form-row input:focus, .form-row textarea:focus {
+            outline: none;
+            border-color: #CD533B;
+            box-shadow: 0 0 5px rgba(250, 243, 62, 0.3);
+        }
+        
+        .person-section {
+            border: 2px solid #aadde7;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+        }
+        
+        .person-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .person-title {
+            font-weight: 600;
+            color: #086375;
+            font-size: 1.1em;
+        }
+        
+        .remove-person {
+            background: #CD533B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .remove-person:hover {
+            background: #b04429;
+        }
+        
+        .person-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .person-row > div {
+            flex: 1;
+        }
+        
+        .person-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .person-row input, .person-row select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .person-row input:focus, .person-row select:focus {
+            outline: none;
+            border-color: #215737;
+            box-shadow: 0 0 5px rgba(250, 243, 62, 0.3);
+        }
+        
+        .btn {
+            background: #CD533B;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px 5px 5px 0;
+            font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .btn:hover {
+            background: #a03d2a;
+        }
+        
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: #086375;
+        }
+        
+        .btn-secondary:hover {
+            background: rgb(59, 66, 73);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: 1px solid #f5c6cb;
+            text-align: center;
+            display: none;
+        }
+        
+        .required {
+            color: #dc3545;
+        }
+        
+        @media (max-width: 600px) {
+            .person-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+                line-height: 1.1;
+                word-spacing: 999px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Family Reunion<br class="mobile-break">Shirts</h1>
+        
+        
+        <form id="familyOrderForm" action="https://formspree.io/f/mblybldn" method="POST">
+            <div class="contact-section">
+                <h3>Family</h3>
+                <div class="form-row">
+                    <label for="contactName">Name <span class="required">*</span></label>
+                    <input type="text" id="contactName" name="contactName" required placeholder="Enter your name">
+                </div>
+            </div>
+            
+            <div id="peopleSection">
+                <h3></h3>
+                <div id="peopleContainer">
+                    <!-- People will be added here -->
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="addPerson()">Add Person</button>
+            </div>
+            
+            <button type="submit" class="btn btn-submit" id="submitBtn">Submit</button>
+            
+            <!-- Hidden field to store formatted order summary -->
+            <input type="hidden" id="orderSummary" name="orderSummary">
+        </form>
+        
+        <div id="successMessage" class="success-message">
+            Thanks ya filthy animals!
+        </div>
+        
+        <div id="errorMessage" class="error-message">
+            Sorry, there was an error submitting your order. Please try again.
+        </div>
+    </div>
+
+    <script>
+        let peopleCount = 0;
+        let people = [];
+
+        function addPerson() {
+            peopleCount++;
+            const personDiv = document.createElement('div');
+            personDiv.className = 'person-section';
+            personDiv.id = `person-${peopleCount}`;
+            
+            personDiv.innerHTML = `
+                <div class="person-header">
+                    <div class="person-title">Person ${peopleCount}</div>
+                    <button type="button" class="remove-person" onclick="removePerson(${peopleCount})">Remove</button>
+                </div>
+                <div class="person-row">
+                    <div>
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" data-field="name" data-person="${peopleCount}" required placeholder="Enter name">
+                    </div>
+                    <div>
+                        <label>Shirt Type <span class="required">*</span></label>
+                        <select data-field="shirtType" data-person="${peopleCount}" required>
+                            <option value="">Select shirt type</option>
+                            <option value="Adult T-Shirt - Style 1">Adult T-Shirt - Style 1</option>
+                            <option value="Adult T-Shirt - Style 2">Adult T-Shirt - Style 2</option>
+                            <option value="Adult T-Shirt - Style 3">Adult T-Shirt - Style 3</option>
+                            <option value="Kids T-Shirt">Kids T-Shirt</option>
+                            <option value="Adult Long Sleeve">Adult Long Sleeve</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Size <span class="required">*</span></label>
+                        <select data-field="size" data-person="${peopleCount}" required>
+                            <option value="">Select size</option>
+                            <option value="XS">XS</option>
+                            <option value="Small">S</option>
+                            <option value="Medium">M</option>
+                            <option value="Large">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('peopleContainer').appendChild(personDiv);
+            
+            // Add event listeners to update people data
+            const inputs = personDiv.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', updatePeopleData);
+                input.addEventListener('input', updatePeopleData);
+            });
+            
+            updatePeopleData();
+        }
+
+        function removePerson(personId) {
+            const personDiv = document.getElementById(`person-${personId}`);
+            if (personDiv) {
+                personDiv.remove();
+                updatePeopleData();
+            }
+        }
+
+        function updatePeopleData() {
+            people = [];
+            const personSections = document.querySelectorAll('.person-section');
+            
+            personSections.forEach(section => {
+                const inputs = section.querySelectorAll('input, select');
+                const person = {};
+                
+                inputs.forEach(input => {
+                    const field = input.getAttribute('data-field');
+                    if (field) {
+                        person[field] = input.value;
+                    }
+                });
+                
+                if (person.name || person.shirtType || person.size) {
+                    people.push(person);
+                }
+            });
+            
+            // Create a readable summary
+            updateOrderSummary();
+        }
+
+        function updateOrderSummary() {
+            let summary = `FAMILY SHIRT ORDER\n`;
+            summary += `==================\n\n`;
+            
+            const contactName = document.getElementById('contactName').value;
+            
+            if (contactName) {
+                summary += `Contact Person: ${contactName}\n`;
+            }
+            
+            summary += `\nSHIRT ORDERS:\n`;
+            summary += `-------------\n`;
+            
+            people.forEach((person, index) => {
+                summary += `\n${index + 1}. ${person.name || '[Name not entered]'}\n`;
+                summary += `   Shirt Type: ${person.shirtType || '[Not selected]'}\n`;
+                summary += `   Size: ${person.size || '[Not selected]'}\n`;
+            });
+            
+            if (people.length === 0) {
+                summary += `\nNo people added yet.\n`;
+            } else {
+                summary += `\nTotal Orders: ${people.length}\n`;
+            }
+            
+            summary += `\n==================\n`;
+            summary += `Order submitted on: ${new Date().toLocaleString()}\n`;
+            
+            document.getElementById('orderSummary').value = summary;
+        }
+
+        // Add first person by default
+        addPerson();
+
+        // Add event listeners to contact fields
+        document.getElementById('contactName').addEventListener('input', updateOrderSummary);
+
+        const form = document.getElementById('familyOrderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate that at least one person is added
+            if (people.length === 0) {
+                alert('Please add at least one person to your order.');
+                return;
+            }
+            
+            // Validate that all people have required fields
+            let isValid = true;
+            people.forEach((person, index) => {
+                if (!person.name || !person.shirtType || !person.size) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields for each person.');
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                    people = [];
+                    document.getElementById('peopleContainer').innerHTML = '';
+                    addPerson(); // Add one person back
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth' });
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+            }
+        });
+    </script>
+</body>
+</html>
