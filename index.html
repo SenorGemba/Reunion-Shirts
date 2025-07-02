@@ -314,14 +314,8 @@
                     </div>
                     <div>
                         <label>Size <span class="required">*</span></label>
-                        <select data-field="size" data-person="${peopleCount}" required>
-                            <option value="">Select size</option>
-                            <option value="XS">XS</option>
-                            <option value="Small">S</option>
-                            <option value="Medium">M</option>
-                            <option value="Large">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
+                        <select data-field="size" data-person="${peopleCount}" required disabled>
+                            <option value="">Select shirt type first</option>
                         </select>
                     </div>
                 </div>
@@ -342,6 +336,13 @@
             
             shirtTypeSelect.addEventListener('change', function() {
                 updateSizeOptions(sizeSelect, this.value);
+                // Enable size select when shirt type is chosen
+                if (this.value) {
+                    sizeSelect.disabled = false;
+                } else {
+                    sizeSelect.disabled = true;
+                    sizeSelect.innerHTML = '<option value="">Select shirt type first</option>';
+                }
             });
             
             updatePeopleData();
