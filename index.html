@@ -336,7 +336,48 @@
                 input.addEventListener('input', updatePeopleData);
             });
             
+            // Add specific listener for shirt type changes
+            const shirtTypeSelect = personDiv.querySelector('[data-field="shirtType"]');
+            const sizeSelect = personDiv.querySelector('[data-field="size"]');
+            
+            shirtTypeSelect.addEventListener('change', function() {
+                updateSizeOptions(sizeSelect, this.value);
+            });
+            
             updatePeopleData();
+        }
+
+        function updateSizeOptions(sizeSelect, shirtType) {
+            const allSizes = [
+                { value: "", text: "Select size" },
+                { value: "XS", text: "XS" },
+                { value: "Small", text: "S" },
+                { value: "Medium", text: "M" },
+                { value: "Large", text: "L" },
+                { value: "XL", text: "XL" },
+                { value: "XXL", text: "XXL" }
+            ];
+            
+            const kidsSizes = [
+                { value: "", text: "Select size" },
+                { value: "Small", text: "S" },
+                { value: "Medium", text: "M" },
+                { value: "Large", text: "L" },
+                { value: "XL", text: "XL" }
+            ];
+            
+            const sizesToUse = shirtType === "Kids T-Shirt" ? kidsSizes : allSizes;
+            
+            // Clear existing options
+            sizeSelect.innerHTML = '';
+            
+            // Add new options
+            sizesToUse.forEach(size => {
+                const option = document.createElement('option');
+                option.value = size.value;
+                option.textContent = size.text;
+                sizeSelect.appendChild(option);
+            });
         }
 
         function removePerson(personId) {
